@@ -1,3 +1,32 @@
+<?php
+session_start();
+
+  require 'api/config.php';
+
+  if (isset($_SESSION['login_id'])) {
+    $records = $conn->prepare('SELECT id_padre, ci, password FROM users WHERE id_padre = :id_padre');
+    $records->bindParam(':id_padre', $_SESSION['login_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+
+    $user = null;
+
+    if (count($results) > 0) {
+      $user = $results;
+    }
+  }
+?>
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
