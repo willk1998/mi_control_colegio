@@ -1,0 +1,69 @@
+// To parse this JSON data, do
+//
+//     final actionLog = actionLogFromJson(jsonString);
+
+import 'dart:convert';
+
+ActionLog actionLogFromJson(String str) => ActionLog.fromJson(json.decode(str));
+
+String actionLogToJson(ActionLog data) => json.encode(data.toJson());
+
+class ActionLog {
+    int idAction;
+    String nombre;
+    String fechaInicio;
+    String fechaFin;
+    int idUsuario;
+    int idPlanta;
+    int idEstado;
+    String idArea;
+    String idTipoAction;
+    String tor;
+    int idCreador;
+    String urlAvatar;
+
+    ActionLog({
+        this.idAction,
+        this.nombre,
+        this.fechaInicio,
+        this.fechaFin,
+        this.idUsuario,
+        this.idPlanta,
+        this.idEstado,
+        this.idArea,
+        this.idTipoAction,
+        this.tor,
+        this.idCreador,
+        this.urlAvatar,
+    });
+
+    factory ActionLog.fromJson(Map<String, dynamic> json) => ActionLog(
+        idAction: json["id_action"],
+        nombre: json["nombre"],
+        fechaInicio: json["fecha_inicio"],
+        fechaFin: json["fecha_fin"],
+        idUsuario: json["id_usuario"],
+        idPlanta: json["id_planta"],
+        idEstado: json["id_estado"],
+        idArea: json["id_area"],
+        idTipoAction: json["id_tipo_action"],
+        tor: json["tor"],
+        idCreador: json["id_creador"],
+        urlAvatar: json["url_avatar"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_action": idAction,
+        "nombre": nombre,
+        "fecha_inicio": fechaInicio,
+        "fecha_fin": fechaFin,
+        "id_usuario": idUsuario,
+        "id_planta": idPlanta,
+        "id_estado": idEstado,
+        "id_area": idArea,
+        "id_tipo_action": idTipoAction,
+        "tor": tor,
+        "id_creador": idCreador,
+        "url_avatar": urlAvatar,
+    };
+}

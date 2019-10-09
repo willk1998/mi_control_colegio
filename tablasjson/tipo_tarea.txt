@@ -1,0 +1,29 @@
+// To parse this JSON data, do
+//
+//     final tipoTarea = tipoTareaFromJson(jsonString);
+
+import 'dart:convert';
+
+TipoTarea tipoTareaFromJson(String str) => TipoTarea.fromJson(json.decode(str));
+
+String tipoTareaToJson(TipoTarea data) => json.encode(data.toJson());
+
+class TipoTarea {
+    int idTipoTarea;
+    String tipoTareas;
+
+    TipoTarea({
+        this.idTipoTarea,
+        this.tipoTareas,
+    });
+
+    factory TipoTarea.fromJson(Map<String, dynamic> json) => TipoTarea(
+        idTipoTarea: json["id_tipo_tarea"],
+        tipoTareas: json["tipo_tareas"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_tipo_tarea": idTipoTarea,
+        "tipo_tareas": tipoTareas,
+    };
+}

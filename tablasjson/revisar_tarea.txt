@@ -1,0 +1,49 @@
+// To parse this JSON data, do
+//
+//     final revisarTarea = revisarTareaFromJson(jsonString);
+
+import 'dart:convert';
+
+RevisarTarea revisarTareaFromJson(String str) => RevisarTarea.fromJson(json.decode(str));
+
+String revisarTareaToJson(RevisarTarea data) => json.encode(data.toJson());
+
+class RevisarTarea {
+    int idRevision;
+    int idTarea;
+    int idRevisor;
+    int idParticipante;
+    String comentario;
+    String fecha;
+    int estado;
+
+    RevisarTarea({
+        this.idRevision,
+        this.idTarea,
+        this.idRevisor,
+        this.idParticipante,
+        this.comentario,
+        this.fecha,
+        this.estado,
+    });
+
+    factory RevisarTarea.fromJson(Map<String, dynamic> json) => RevisarTarea(
+        idRevision: json["id_revision"],
+        idTarea: json["id_tarea"],
+        idRevisor: json["id_revisor"],
+        idParticipante: json["id_participante"],
+        comentario: json["comentario"],
+        fecha: json["fecha"],
+        estado: json["estado"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_revision": idRevision,
+        "id_tarea": idTarea,
+        "id_revisor": idRevisor,
+        "id_participante": idParticipante,
+        "comentario": comentario,
+        "fecha": fecha,
+        "estado": estado,
+    };
+}

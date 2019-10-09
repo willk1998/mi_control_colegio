@@ -1,0 +1,41 @@
+// To parse this JSON data, do
+//
+//     final reporteProblema = reporteProblemaFromJson(jsonString);
+
+import 'dart:convert';
+
+ReporteProblema reporteProblemaFromJson(String str) => ReporteProblema.fromJson(json.decode(str));
+
+String reporteProblemaToJson(ReporteProblema data) => json.encode(data.toJson());
+
+class ReporteProblema {
+    int idReporteProblema;
+    int idTarea;
+    int idUsuario;
+    String fecha;
+    String problema;
+
+    ReporteProblema({
+        this.idReporteProblema,
+        this.idTarea,
+        this.idUsuario,
+        this.fecha,
+        this.problema,
+    });
+
+    factory ReporteProblema.fromJson(Map<String, dynamic> json) => ReporteProblema(
+        idReporteProblema: json["id_reporte_problema"],
+        idTarea: json["id_tarea"],
+        idUsuario: json["id_usuario"],
+        fecha: json["fecha"],
+        problema: json["problema"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_reporte_problema": idReporteProblema,
+        "id_tarea": idTarea,
+        "id_usuario": idUsuario,
+        "fecha": fecha,
+        "problema": problema,
+    };
+}

@@ -1,0 +1,29 @@
+ To parse this JSON data, do
+
+     final rolUsuario = rolUsuarioFromJson(jsonString);
+
+import 'dartconvert';
+
+RolUsuario rolUsuarioFromJson(String str) = RolUsuario.fromJson(json.decode(str));
+
+String rolUsuarioToJson(RolUsuario data) = json.encode(data.toJson());
+
+class RolUsuario {
+    int idRol;
+    String nombreRol;
+
+    RolUsuario({
+        this.idRol,
+        this.nombreRol,
+    });
+
+    factory RolUsuario.fromJson(MapString, dynamic json) = RolUsuario(
+        idRol json[id_rol],
+        nombreRol json[nombre_rol],
+    );
+
+    MapString, dynamic toJson() = {
+        id_rol idRol,
+        nombre_rol nombreRol,
+    };
+}

@@ -1,0 +1,33 @@
+// To parse this JSON data, do
+//
+//     final permisos = permisosFromJson(jsonString);
+
+import 'dart:convert';
+
+Permisos permisosFromJson(String str) => Permisos.fromJson(json.decode(str));
+
+String permisosToJson(Permisos data) => json.encode(data.toJson());
+
+class Permisos {
+    int idPermiso;
+    String permiso;
+    String tipo;
+
+    Permisos({
+        this.idPermiso,
+        this.permiso,
+        this.tipo,
+    });
+
+    factory Permisos.fromJson(Map<String, dynamic> json) => Permisos(
+        idPermiso: json["id_permiso"],
+        permiso: json["permiso"],
+        tipo: json["tipo"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_permiso": idPermiso,
+        "permiso": permiso,
+        "tipo": tipo,
+    };
+}

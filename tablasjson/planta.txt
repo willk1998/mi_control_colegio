@@ -1,0 +1,37 @@
+// To parse this JSON data, do
+//
+//     final planta = plantaFromJson(jsonString);
+
+import 'dart:convert';
+
+Planta plantaFromJson(String str) => Planta.fromJson(json.decode(str));
+
+String plantaToJson(Planta data) => json.encode(data.toJson());
+
+class Planta {
+    int idPlanta;
+    String nombrePlanta;
+    String ciudad;
+    String avatar;
+
+    Planta({
+        this.idPlanta,
+        this.nombrePlanta,
+        this.ciudad,
+        this.avatar,
+    });
+
+    factory Planta.fromJson(Map<String, dynamic> json) => Planta(
+        idPlanta: json["id_planta"],
+        nombrePlanta: json["nombre_planta"],
+        ciudad: json["ciudad"],
+        avatar: json["avatar"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_planta": idPlanta,
+        "nombre_planta": nombrePlanta,
+        "ciudad": ciudad,
+        "avatar": avatar,
+    };
+}

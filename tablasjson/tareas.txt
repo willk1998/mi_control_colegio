@@ -1,0 +1,81 @@
+// To parse this JSON data, do
+//
+//     final tareas = tareasFromJson(jsonString);
+
+import 'dart:convert';
+
+Tareas tareasFromJson(String str) => Tareas.fromJson(json.decode(str));
+
+String tareasToJson(Tareas data) => json.encode(data.toJson());
+
+class Tareas {
+    int idTarea;
+    String tarea;
+    String actions;
+    String comentario;
+    String fechaRegistro;
+    String fechaInicio;
+    String fechaFin;
+    String fechaInicioActual;
+    String fechaFinActual;
+    int idEstado;
+    String resultado;
+    int idTipo;
+    int idAction;
+    int idCreador;
+    String pasos;
+
+    Tareas({
+        this.idTarea,
+        this.tarea,
+        this.actions,
+        this.comentario,
+        this.fechaRegistro,
+        this.fechaInicio,
+        this.fechaFin,
+        this.fechaInicioActual,
+        this.fechaFinActual,
+        this.idEstado,
+        this.resultado,
+        this.idTipo,
+        this.idAction,
+        this.idCreador,
+        this.pasos,
+    });
+
+    factory Tareas.fromJson(Map<String, dynamic> json) => Tareas(
+        idTarea: json["id_tarea"],
+        tarea: json["tarea"],
+        actions: json["actions"],
+        comentario: json["comentario"],
+        fechaRegistro: json["fecha_registro"],
+        fechaInicio: json["fecha_inicio"],
+        fechaFin: json["fecha_fin"],
+        fechaInicioActual: json["fecha_inicio_actual"],
+        fechaFinActual: json["fecha_fin_actual"],
+        idEstado: json["id_estado"],
+        resultado: json["resultado"],
+        idTipo: json["id_tipo"],
+        idAction: json["id_action"],
+        idCreador: json["id_creador"],
+        pasos: json["pasos"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_tarea": idTarea,
+        "tarea": tarea,
+        "actions": actions,
+        "comentario": comentario,
+        "fecha_registro": fechaRegistro,
+        "fecha_inicio": fechaInicio,
+        "fecha_fin": fechaFin,
+        "fecha_inicio_actual": fechaInicioActual,
+        "fecha_fin_actual": fechaFinActual,
+        "id_estado": idEstado,
+        "resultado": resultado,
+        "id_tipo": idTipo,
+        "id_action": idAction,
+        "id_creador": idCreador,
+        "pasos": pasos,
+    };
+}

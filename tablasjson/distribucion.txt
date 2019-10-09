@@ -1,0 +1,41 @@
+// To parse this JSON data, do
+//
+//     final distribucion = distribucionFromJson(jsonString);
+
+import 'dart:convert';
+
+Distribucion distribucionFromJson(String str) => Distribucion.fromJson(json.decode(str));
+
+String distribucionToJson(Distribucion data) => json.encode(data.toJson());
+
+class Distribucion {
+    int idDistribucion;
+    int idActionLog;
+    int tiempoNotificacion;
+    int idUsuario;
+    String fechaDistribucion;
+
+    Distribucion({
+        this.idDistribucion,
+        this.idActionLog,
+        this.tiempoNotificacion,
+        this.idUsuario,
+        this.fechaDistribucion,
+    });
+
+    factory Distribucion.fromJson(Map<String, dynamic> json) => Distribucion(
+        idDistribucion: json["id_distribucion"],
+        idActionLog: json["id_action_log"],
+        tiempoNotificacion: json["tiempo_notificacion"],
+        idUsuario: json["id_usuario"],
+        fechaDistribucion: json["fecha_distribucion"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_distribucion": idDistribucion,
+        "id_action_log": idActionLog,
+        "tiempo_notificacion": tiempoNotificacion,
+        "id_usuario": idUsuario,
+        "fecha_distribucion": fechaDistribucion,
+    };
+}

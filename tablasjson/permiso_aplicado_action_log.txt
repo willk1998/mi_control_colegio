@@ -1,0 +1,37 @@
+// To parse this JSON data, do
+//
+//     final permisoAplicadoActionLog = permisoAplicadoActionLogFromJson(jsonString);
+
+import 'dart:convert';
+
+PermisoAplicadoActionLog permisoAplicadoActionLogFromJson(String str) => PermisoAplicadoActionLog.fromJson(json.decode(str));
+
+String permisoAplicadoActionLogToJson(PermisoAplicadoActionLog data) => json.encode(data.toJson());
+
+class PermisoAplicadoActionLog {
+    int idPermisoAplicados;
+    int idActionLog;
+    int idUsuario;
+    int idPermiso;
+
+    PermisoAplicadoActionLog({
+        this.idPermisoAplicados,
+        this.idActionLog,
+        this.idUsuario,
+        this.idPermiso,
+    });
+
+    factory PermisoAplicadoActionLog.fromJson(Map<String, dynamic> json) => PermisoAplicadoActionLog(
+        idPermisoAplicados: json["id_permiso_aplicados"],
+        idActionLog: json["id_action_log"],
+        idUsuario: json["id_usuario"],
+        idPermiso: json["id_permiso"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_permiso_aplicados": idPermisoAplicados,
+        "id_action_log": idActionLog,
+        "id_usuario": idUsuario,
+        "id_permiso": idPermiso,
+    };
+}

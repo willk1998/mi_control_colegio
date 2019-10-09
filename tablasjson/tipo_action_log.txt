@@ -1,0 +1,29 @@
+// To parse this JSON data, do
+//
+//     final tipoActionLog = tipoActionLogFromJson(jsonString);
+
+import 'dart:convert';
+
+TipoActionLog tipoActionLogFromJson(String str) => TipoActionLog.fromJson(json.decode(str));
+
+String tipoActionLogToJson(TipoActionLog data) => json.encode(data.toJson());
+
+class TipoActionLog {
+    int idTipoAction;
+    String tipoAction;
+
+    TipoActionLog({
+        this.idTipoAction,
+        this.tipoAction,
+    });
+
+    factory TipoActionLog.fromJson(Map<String, dynamic> json) => TipoActionLog(
+        idTipoAction: json["id_tipo_action"],
+        tipoAction: json["tipo_action"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_tipo_action": idTipoAction,
+        "tipo_action": tipoAction,
+    };
+}

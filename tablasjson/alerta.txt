@@ -1,0 +1,49 @@
+// To parse this JSON data, do
+//
+//     final alerta = alertaFromJson(jsonString);
+
+import 'dart:convert';
+
+Alerta alertaFromJson(String str) => Alerta.fromJson(json.decode(str));
+
+String alertaToJson(Alerta data) => json.encode(data.toJson());
+
+class Alerta {
+    int idAlerta;
+    int idTarea;
+    String fecha;
+    String mensajeAlerta;
+    int visto;
+    String fechaVisto;
+    int idDestinatario;
+
+    Alerta({
+        this.idAlerta,
+        this.idTarea,
+        this.fecha,
+        this.mensajeAlerta,
+        this.visto,
+        this.fechaVisto,
+        this.idDestinatario,
+    });
+
+    factory Alerta.fromJson(Map<String, dynamic> json) => Alerta(
+        idAlerta: json["id_alerta"],
+        idTarea: json["id_tarea"],
+        fecha: json["fecha"],
+        mensajeAlerta: json["mensaje_alerta"],
+        visto: json["visto"],
+        fechaVisto: json["fecha_visto"],
+        idDestinatario: json["id_destinatario"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_alerta": idAlerta,
+        "id_tarea": idTarea,
+        "fecha": fecha,
+        "mensaje_alerta": mensajeAlerta,
+        "visto": visto,
+        "fecha_visto": fechaVisto,
+        "id_destinatario": idDestinatario,
+    };
+}

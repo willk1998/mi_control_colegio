@@ -1,0 +1,69 @@
+// To parse this JSON data, do
+//
+//     final usuario = usuarioFromJson(jsonString);
+
+import 'dart:convert';
+
+Usuario usuarioFromJson(String str) => Usuario.fromJson(json.decode(str));
+
+String usuarioToJson(Usuario data) => json.encode(data.toJson());
+
+class Usuario {
+    int idUsuario;
+    String nombre;
+    String apellidoPat;
+    String password;
+    int idPlanta;
+    String email;
+    int telfMovil;
+    String urlAvatar;
+    String apellidoMat;
+    String userName;
+    int notificacion;
+    String nombreCompleto;
+
+    Usuario({
+        this.idUsuario,
+        this.nombre,
+        this.apellidoPat,
+        this.password,
+        this.idPlanta,
+        this.email,
+        this.telfMovil,
+        this.urlAvatar,
+        this.apellidoMat,
+        this.userName,
+        this.notificacion,
+        this.nombreCompleto,
+    });
+
+    factory Usuario.fromJson(Map<String, dynamic> json) => Usuario(
+        idUsuario: json["id_usuario"],
+        nombre: json["nombre"],
+        apellidoPat: json["apellido_pat"],
+        password: json["password"],
+        idPlanta: json["id_planta"],
+        email: json["email"],
+        telfMovil: json["telf_movil"],
+        urlAvatar: json["url_avatar"],
+        apellidoMat: json["apellido_mat"],
+        userName: json["user_name"],
+        notificacion: json["notificacion"],
+        nombreCompleto: json["nombre_completo"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_usuario": idUsuario,
+        "nombre": nombre,
+        "apellido_pat": apellidoPat,
+        "password": password,
+        "id_planta": idPlanta,
+        "email": email,
+        "telf_movil": telfMovil,
+        "url_avatar": urlAvatar,
+        "apellido_mat": apellidoMat,
+        "user_name": userName,
+        "notificacion": notificacion,
+        "nombre_completo": nombreCompleto,
+    };
+}

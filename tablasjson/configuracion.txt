@@ -1,0 +1,45 @@
+// To parse this JSON data, do
+//
+//     final configuracion = configuracionFromJson(jsonString);
+
+import 'dart:convert';
+
+Configuracion configuracionFromJson(String str) => Configuracion.fromJson(json.decode(str));
+
+String configuracionToJson(Configuracion data) => json.encode(data.toJson());
+
+class Configuracion {
+    int idConfiguracion;
+    int idUsuario;
+    int tiempoNotificacion;
+    String avatar;
+    int tipoCalendario;
+    int maxNumNotificaciones;
+
+    Configuracion({
+        this.idConfiguracion,
+        this.idUsuario,
+        this.tiempoNotificacion,
+        this.avatar,
+        this.tipoCalendario,
+        this.maxNumNotificaciones,
+    });
+
+    factory Configuracion.fromJson(Map<String, dynamic> json) => Configuracion(
+        idConfiguracion: json["id_configuracion"],
+        idUsuario: json["id_usuario"],
+        tiempoNotificacion: json["tiempo_notificacion"],
+        avatar: json["avatar"],
+        tipoCalendario: json["tipo_calendario"],
+        maxNumNotificaciones: json["max_num_notificaciones"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_configuracion": idConfiguracion,
+        "id_usuario": idUsuario,
+        "tiempo_notificacion": tiempoNotificacion,
+        "avatar": avatar,
+        "tipo_calendario": tipoCalendario,
+        "max_num_notificaciones": maxNumNotificaciones,
+    };
+}

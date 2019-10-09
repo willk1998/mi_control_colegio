@@ -1,0 +1,33 @@
+// To parse this JSON data, do
+//
+//     final area = areaFromJson(jsonString);
+
+import 'dart:convert';
+
+Area areaFromJson(String str) => Area.fromJson(json.decode(str));
+
+String areaToJson(Area data) => json.encode(data.toJson());
+
+class Area {
+    int idArea;
+    String nombre;
+    String urlAvatar;
+
+    Area({
+        this.idArea,
+        this.nombre,
+        this.urlAvatar,
+    });
+
+    factory Area.fromJson(Map<String, dynamic> json) => Area(
+        idArea: json["id_area"],
+        nombre: json["nombre"],
+        urlAvatar: json["url_avatar"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_area": idArea,
+        "nombre": nombre,
+        "url_avatar": urlAvatar,
+    };
+}

@@ -1,0 +1,33 @@
+// To parse this JSON data, do
+//
+//     final participantes = participantesFromJson(jsonString);
+
+import 'dart:convert';
+
+Participantes participantesFromJson(String str) => Participantes.fromJson(json.decode(str));
+
+String participantesToJson(Participantes data) => json.encode(data.toJson());
+
+class Participantes {
+    int idParticipante;
+    int idUsuario;
+    int idActionLog;
+
+    Participantes({
+        this.idParticipante,
+        this.idUsuario,
+        this.idActionLog,
+    });
+
+    factory Participantes.fromJson(Map<String, dynamic> json) => Participantes(
+        idParticipante: json["id_participante"],
+        idUsuario: json["id_usuario"],
+        idActionLog: json["id_action_log"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_participante": idParticipante,
+        "id_usuario": idUsuario,
+        "id_action_log": idActionLog,
+    };
+}

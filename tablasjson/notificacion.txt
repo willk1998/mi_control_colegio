@@ -1,0 +1,57 @@
+// To parse this JSON data, do
+//
+//     final notificacion = notificacionFromJson(jsonString);
+
+import 'dart:convert';
+
+Notificacion notificacionFromJson(String str) => Notificacion.fromJson(json.decode(str));
+
+String notificacionToJson(Notificacion data) => json.encode(data.toJson());
+
+class Notificacion {
+    int idNotificacion;
+    int idTarea;
+    int idUsuario;
+    String mensaje;
+    int idUsuarioOrigen;
+    String fecha;
+    int idActionLog;
+    String fechaVisto;
+    int visto;
+
+    Notificacion({
+        this.idNotificacion,
+        this.idTarea,
+        this.idUsuario,
+        this.mensaje,
+        this.idUsuarioOrigen,
+        this.fecha,
+        this.idActionLog,
+        this.fechaVisto,
+        this.visto,
+    });
+
+    factory Notificacion.fromJson(Map<String, dynamic> json) => Notificacion(
+        idNotificacion: json["id_notificacion"],
+        idTarea: json["id_tarea"],
+        idUsuario: json["id_usuario"],
+        mensaje: json["mensaje"],
+        idUsuarioOrigen: json["id_usuario_origen"],
+        fecha: json["fecha"],
+        idActionLog: json["id_action_log"],
+        fechaVisto: json["fecha_visto"],
+        visto: json["visto"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_notificacion": idNotificacion,
+        "id_tarea": idTarea,
+        "id_usuario": idUsuario,
+        "mensaje": mensaje,
+        "id_usuario_origen": idUsuarioOrigen,
+        "fecha": fecha,
+        "id_action_log": idActionLog,
+        "fecha_visto": fechaVisto,
+        "visto": visto,
+    };
+}

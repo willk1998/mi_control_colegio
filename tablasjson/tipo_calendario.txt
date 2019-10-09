@@ -1,0 +1,29 @@
+// To parse this JSON data, do
+//
+//     final tipoCalendario = tipoCalendarioFromJson(jsonString);
+
+import 'dart:convert';
+
+TipoCalendario tipoCalendarioFromJson(String str) => TipoCalendario.fromJson(json.decode(str));
+
+String tipoCalendarioToJson(TipoCalendario data) => json.encode(data.toJson());
+
+class TipoCalendario {
+    int idTipoCalendario;
+    String tipoCalendarios;
+
+    TipoCalendario({
+        this.idTipoCalendario,
+        this.tipoCalendarios,
+    });
+
+    factory TipoCalendario.fromJson(Map<String, dynamic> json) => TipoCalendario(
+        idTipoCalendario: json["id_tipo_calendario"],
+        tipoCalendarios: json["tipo_calendarios"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_tipo_calendario": idTipoCalendario,
+        "tipo_calendarios": tipoCalendarios,
+    };
+}

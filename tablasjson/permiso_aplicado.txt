@@ -1,0 +1,37 @@
+// To parse this JSON data, do
+//
+//     final permisoAplicado = permisoAplicadoFromJson(jsonString);
+
+import 'dart:convert';
+
+PermisoAplicado permisoAplicadoFromJson(String str) => PermisoAplicado.fromJson(json.decode(str));
+
+String permisoAplicadoToJson(PermisoAplicado data) => json.encode(data.toJson());
+
+class PermisoAplicado {
+    int idPermisoAplicado;
+    int idPermiso;
+    int idUsuario;
+    int idGrupo;
+
+    PermisoAplicado({
+        this.idPermisoAplicado,
+        this.idPermiso,
+        this.idUsuario,
+        this.idGrupo,
+    });
+
+    factory PermisoAplicado.fromJson(Map<String, dynamic> json) => PermisoAplicado(
+        idPermisoAplicado: json["id_permiso_aplicado"],
+        idPermiso: json["id_permiso"],
+        idUsuario: json["id_usuario"],
+        idGrupo: json["id_grupo"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_permiso_aplicado": idPermisoAplicado,
+        "id_permiso": idPermiso,
+        "id_usuario": idUsuario,
+        "id_grupo": idGrupo,
+    };
+}

@@ -1,0 +1,33 @@
+// To parse this JSON data, do
+//
+//     final responsable = responsableFromJson(jsonString);
+
+import 'dart:convert';
+
+Responsable responsableFromJson(String str) => Responsable.fromJson(json.decode(str));
+
+String responsableToJson(Responsable data) => json.encode(data.toJson());
+
+class Responsable {
+    int idResponsable;
+    int idTarea;
+    int idUsuario;
+
+    Responsable({
+        this.idResponsable,
+        this.idTarea,
+        this.idUsuario,
+    });
+
+    factory Responsable.fromJson(Map<String, dynamic> json) => Responsable(
+        idResponsable: json["id_responsable"],
+        idTarea: json["id_tarea"],
+        idUsuario: json["id_usuario"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_responsable": idResponsable,
+        "id_tarea": idTarea,
+        "id_usuario": idUsuario,
+    };
+}

@@ -1,0 +1,53 @@
+// To parse this JSON data, do
+//
+//     final mensaje = mensajeFromJson(jsonString);
+
+import 'dart:convert';
+
+Mensaje mensajeFromJson(String str) => Mensaje.fromJson(json.decode(str));
+
+String mensajeToJson(Mensaje data) => json.encode(data.toJson());
+
+class Mensaje {
+    int idMensaje;
+    String mensaje;
+    int idOrigen;
+    int idDestino;
+    String fechaEnvio;
+    String fechaVisto;
+    int idAction;
+    int visto;
+
+    Mensaje({
+        this.idMensaje,
+        this.mensaje,
+        this.idOrigen,
+        this.idDestino,
+        this.fechaEnvio,
+        this.fechaVisto,
+        this.idAction,
+        this.visto,
+    });
+
+    factory Mensaje.fromJson(Map<String, dynamic> json) => Mensaje(
+        idMensaje: json["id_mensaje"],
+        mensaje: json["mensaje"],
+        idOrigen: json["id_origen"],
+        idDestino: json["id_destino"],
+        fechaEnvio: json["fecha_envio"],
+        fechaVisto: json["fecha_visto"],
+        idAction: json["id_action"],
+        visto: json["visto"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id_mensaje": idMensaje,
+        "mensaje": mensaje,
+        "id_origen": idOrigen,
+        "id_destino": idDestino,
+        "fecha_envio": fechaEnvio,
+        "fecha_visto": fechaVisto,
+        "id_action": idAction,
+        "visto": visto,
+    };
+}
