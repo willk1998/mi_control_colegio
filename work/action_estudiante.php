@@ -13,7 +13,7 @@ if(isset($_POST["action"]))
 			'ap_mt'			=>	$_POST['ap_mt'],
 			'cargo'			=>	$_POST['cargo'],
 			'ci'	=>	$_POST['ci'],
-			'password'	=>	$_POST['password'],
+			
 			'direccion'	=>	$_POST['direccion'],
             'celular'	=>	$_POST['celular'],
             'id_padre'	=>	$_POST['id_padre'],

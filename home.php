@@ -1,20 +1,24 @@
 <?php
-session_start();
+
 
   require 'api/config.php';
 
-  if (isset($_SESSION['login_id'])) {
-    $records = $conn->prepare('SELECT id_padre, ci, password FROM users WHERE id_padre = :id_padre');
-    $records->bindParam(':id_padre', $_SESSION['login_id']);
+  
+
+	
+    $records = $conn->prepare('SELECT COUNT(*) total FROM padre_familia	;');
     $records->execute();
-    $results = $records->fetch(PDO::FETCH_ASSOC);
+	$total = $records->fetchColumn();
+	
 
-    $user = null;
+	$sql = $conn->prepare('SELECT COUNT(*) FROM estudiante	;');
+    $sql->execute();
+	$nombre = $sql->fetchColumn();
 
-    if (count($results) > 0) {
-      $user = $results;
-    }
-  }
+	$sql = $conn->prepare('SELECT COUNT(*) FROM profesor	;');
+    $sql->execute();
+	$nombrep = $sql->fetchColumn();
+
 ?>
 
 
@@ -173,20 +177,10 @@ session_start();
 			<div class="page-header">
 			  <h1 class="text-titles">U.E SAN ANTONIO DE PADUA<small>Informacion</small></h1>
 			</div>
+			
 		</div>
 		<div class="full-box text-center" style="padding: 30px 10px;">
-			<article class="full-box tile">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					Administradores
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-account"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">7</p>
-					<small>Registros</small>
-				</div>
-			</article>
+			
 			<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Profesores
@@ -195,7 +189,7 @@ session_start();
 					<i class="zmdi zmdi-male-alt"></i>
 				</div>
 				<div class="full-box tile-number text-titles">
-					<p class="full-box">10</p>
+					<p class="full-box"><?php echo $nombrep?></p>
 					<small>Registros</small>
 				</div>
 			</article>
@@ -207,11 +201,15 @@ session_start();
 					<i class="zmdi zmdi-face"></i>
 				</div>
 				<div class="full-box tile-number text-titles">
-					<p class="full-box">70</p>
-					<small>Registros</small>
+				<a href="work/index_estudiante.php">
+					<p class="full-box"><?php echo $nombre?></p>
+					<small>Registros</small></a>
 				</div>
 			</article>
+			
 			<article class="full-box tile">
+			
+			
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Padres de Familia
 				</div>
@@ -219,8 +217,12 @@ session_start();
 					<i class="zmdi zmdi-male-female"></i>
 				</div>
 				<div class="full-box tile-number text-titles">
-					<p class="full-box">70</p>
+				
+			
+					<p class="full-box"><?php echo $total ?></p>
+					
 					<small>Registros</small>
+					
 				</div>
 			</article>
 		</div>

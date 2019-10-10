@@ -40,7 +40,7 @@ class API
 				':ap_mt'		=>	$_POST["ap_mt"],
 				':cargo'		=>	$_POST["cargo"],
 				':ci'	=>	$_POST["ci"],
-				':password'  => $_POST["password"],
+				
 				':direccion'  => $_POST["direccion"],
                 ':celular'  => $_POST["celular"],
                 ':id_padre'  => $_POST["id_padre"],
@@ -52,8 +52,8 @@ class API
 			);
 			$query = "
 			INSERT INTO estudiante
-			(nombre,ap_pt,ap_mt,cargo,ci,password,direccion,celular,id_padre,id_profesor,fecha,foto) VALUES 
-			(:nombre,:ap_pt,:ap_mt,:cargo,:ci,:password,:direccion,:celular,:id_padre,:id_profesor,:fecha,:foto);
+			(nombre,ap_pt,ap_mt,cargo,ci,direccion,celular,id_padre,id_profesor,fecha,foto) VALUES 
+			(:nombre,:ap_pt,:ap_mt,:cargo,:ci,:direccion,:celular,:id_padre,:id_profesor,:fecha,:foto);
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -92,7 +92,7 @@ class API
 				$data['ap_mt'] = $row['ap_mt'];
 				$data['cargo'] = $row['cargo'];
 				$data['ci'] = $row['ci'];
-				$data['password'] = $row['password'];
+				
 				$data['direccion'] = $row['direccion'];
                 $data['celular'] = $row['celular'];
                 $data['id_padre'] = $row['id_padre'];
@@ -116,7 +116,7 @@ class API
 				':ap_mt'		=>	$_POST["ap_mt"],
 				':cargo'		=>	$_POST["cargo"],
 				':ci'	=>	$_POST["ci"],
-				':password'	=>	$_POST["password"],
+				
 				':direccion'	=>	$_POST["direccion"],
                 ':celular'	=>	$_POST["celular"],
                 ':id_padre'	=>	$_POST["id_padre"],
@@ -132,7 +132,7 @@ class API
 				, ap_mt = :ap_mt 
 				, cargo = :cargo 
 				, ci = :ci   
-				, password = :password
+				
 				, direccion = :direccion
                 , celular = :celular
                 , id_padre = :id_padre

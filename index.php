@@ -1,11 +1,43 @@
 <?php
-    session_start();
+	
+	
+	session_start();
+		 
+
+    require 'api/config.php';
+    if($_POST['ci'] && $_POST['password']){
+
+        $records = $conn->prepare("SELECT id_padre, ci, password  FROM padre_familia WHERE ci=:ci and password =:password" );
+		$records->bindParam(':ci', $_POST['ci']);
+		$records->bindParam(':password', $_POST['password']);
+        $records->execute();
+        $results= $records->fetch(PDO::FETCH_ASSOC);
+
+        $message = '';
+		echo $_POST['ci'];
+		echo $_POST['password'];
+        if(count($results) > 0 ){
+			if(':password'==$_POST['password'] && password_verify($_POST['password'], $results['password']))
+			{
+				$_SESSION['login_id'] = $results['id_padre'];
+				header('Location: home.php');
+			}
+			else{
+				$message = 'Datos incorrectos';
+			}
+
+        }		
+        
+    }							
+	
+	
+	/*session_start();
     if(isset($_SESSION['login_id'])){
-        header('Location: /mi_control_colegio');
+        header('Location: mi_control_colegio');
     }
 
     require 'api/config.php';
-    if(!empty($_POST['ci']&&$_POST['password'])){
+    if(!empty($_POST['ci'] && $_POST['password'])){
 
         $records = $conn->prepare("SELECT id_padre, ci, password  FROM padre_familia WHERE ci=:ci and password =:password" );
         $records->bindParam(':ci', $_POST['ci']);
@@ -21,7 +53,7 @@
         else{
             $message = 'Datos incorrectos';
         }
-    }
+    }*/
 ?>
 
 <!DOCTYPE html>

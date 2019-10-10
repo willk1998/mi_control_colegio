@@ -25,7 +25,7 @@ if(count($result) > 0)
 			<td>'.$row->ap_mt.'</td>
 			<td>'.$row->cargo.'</td>
 			<td>'.$row->ci.'</td>
-			<td>'.$row->password.'</td>
+			
 			<td>'.$row->direccion.'</td>
             <td>'.$row->celular.'</td>
             <td>'.$row->id_padre.'</td>

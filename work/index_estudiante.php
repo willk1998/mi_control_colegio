@@ -320,10 +320,7 @@
 	                        <label>Nro Documento CI</label>
 	                        <input type="text" name="ci" class="form-control" id="ci" placeholder="Ingrese CI" maxlength="">
 	                    </div>
-	                    <div class="col-sm-4">
-	                        <label>Password</label>
-	                         <input type="text" name="password" class="form-control" id="password" placeholder="Ingrese Password" maxlength="">
-	                    </div> 
+	                    
 	                    <div class="col-md-4">
 	                    	<label>Foto</label>
 							<input type="text" name="foto" class="form-control" id="foto" placeholder="Ingrese Nombres" maxlength="">
@@ -382,10 +379,7 @@ $(document).ready(function(){
 		{
 			alert("Ingresar cargo");
 		}
-		else if($('#password').val() == '')
-		{
-			alert("Ingresar password");
-		}
+		
 		else if($('#direccion').val() == '')
 		{
 			alert("Ingresar direccion");
@@ -452,7 +446,7 @@ $(document).ready(function(){
 				$('#ap_mt').val(data.ap_mt);
 				$('#cargo').val(data.cargo);
 				$('#ci').val(data.ci);
-				$('#password').val(data.password);
+				
 				$('#direccion').val(data.direccion);
 				$('#celular').val(data.celular);
                 $('#id_padre').val(data.id_padre);
