@@ -73,7 +73,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="home.html">
+					<a href="home.php">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
 					</a>
 				</li>
@@ -180,7 +180,7 @@
 			
 		</div>
 		<div class="full-box text-center" style="padding: 30px 10px;">
-			
+		<a href="work/index_profesor.php">
 			<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Profesores
@@ -192,7 +192,8 @@
 					<p class="full-box"><?php echo $nombrep?></p>
 					<small>Registros</small>
 				</div>
-			</article>
+			</article></a>
+			<a href="work/index_estudiante.php">
 			<article class="full-box tile">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Estudiantes
@@ -201,12 +202,12 @@
 					<i class="zmdi zmdi-face"></i>
 				</div>
 				<div class="full-box tile-number text-titles">
-				<a href="work/index_estudiante.php">
+
 					<p class="full-box"><?php echo $nombre?></p>
-					<small>Registros</small></a>
+					<small>Registros</small>
 				</div>
-			</article>
-			
+			</article></a>
+			<a href="work/index_padre_familia.php">
 			<article class="full-box tile">
 			
 			
@@ -224,7 +225,7 @@
 					<small>Registros</small>
 					
 				</div>
-			</article>
+			</article></a>
 		</div>
 
 	</section>
