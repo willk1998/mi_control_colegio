@@ -2,7 +2,7 @@
 
 //fetch.php
 
-$api_url = "http://localhost/grupo2/api/test_api_curso.php?action=fetch_all";
+$api_url = "http://localhost/mi_control_colegio/api/test_api_curso.php?action=fetch_all";
 
 $client = curl_init($api_url);
 
@@ -20,8 +20,9 @@ if(count($result) > 0)
 	{
 		$output .= '
 		<tr>
-			<td>'.$row->curso.'</td>
-		
+			<td>'.$row->id_nivel.'</td>
+			<td>'.$row->id_colegio.'</td>
+			
 			<td><button type="button" name="edit" class="btn btn-success btn-raised btn-xs edit" id="'.$row->id_curso.'"><i class="zmdi zmdi-refresh"></button></td>
 			<td><button type="button" name="delete" class="btn  btn-danger btn-raised btn-xs delete" id="'.$row->id_curso.'"><i class="zmdi zmdi-delete"></button></td>
 		</tr>

@@ -72,7 +72,7 @@
 			</div>
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
-				<li>
+			<li>
 					<a href="home.php">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
 					</a>
@@ -83,10 +83,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="work/index_bimestre.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Bimestre</a>
+							<a href="work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Colegio</a>
 						</li>
 						<li>
-							<a href="work/index_asistencia.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Asistencia</a>
+							<a href="work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuenta</a>
 						</li>
 						<li>
 							<a href="work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Curso</a>
@@ -98,7 +98,13 @@
 							<a href="work/index_materia.php"><i class="zmdi zmdi-folder-outline  zmdi-hc-fw"></i> Materia</a>
 						</li>
 						<li>
-							<a href="work/index_curso.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Curso</a>
+							<a href="work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Paralelo</a>
+						</li>
+						<li>
+							<a href="work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Gestion</a>
+						</li>
+						<li>
+							<a href="work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Nivel</a>
 						</li>
 					</ul>
 				</li>
@@ -125,10 +131,19 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="work/index_registros.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registrar</a>
+							<a href="work/index_persona"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Personas</a>
 						</li>
 						<li>
-							<a href="work/index_prof_curso.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+							<a href="work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+						</li>
+						<li>
+							<a href="work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> inscritos</a>
+						</li>
+						<li>
+							<a href="work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Roles</a>
+						</li>
+						<li>
+							<a href="work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Usuarios Cuenta</a>
 						</li>
 					</ul>
 				</li>

@@ -32,10 +32,12 @@ class API
 
 	function insert()
 	{
-		if(isset($_POST["paralelo"]))
+		if(isset($_POST["codigo"]))
 		{
 			$form_data = array(
-				':paralelo'		    =>	$_POST["paralelo"]
+				':codigo'		    =>	$_POST["codigo"],
+				':id_gestion'		        =>	$_POST["id_gestion"],
+				':id_curso'		=>	$_POST["id_curso"],
 				
 				
 			
@@ -43,8 +45,8 @@ class API
 			);
 			$query = "
 			INSERT INTO paralelo
-			(paralelo) VALUES 
-			(:paralelo);
+			(codigo,id_gestion,id_curso) VALUES 
+			(:codigo,:id_gestion,:id_curso);
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -78,7 +80,9 @@ class API
 			foreach($statement->fetchAll() as $row)
 			{
 				$data['id_paralelo'] = $row['id_paralelo'];
-				$data['paralelo'] = $row['paralelo'];
+				$data['codigo'] = $row['codigo'];
+				$data['id_gestion'] = $row['id_gestion'];
+				$data['id_curso'] = $row['id_curso'];
 			
 			
 
@@ -90,18 +94,22 @@ class API
 
 	function update()
 	{
-		if(isset($_POST["paralelo"]))
+		if(isset($_POST["codigo"]))
 		{
 			$form_data = array(
-				':paralelo'		    =>	$_POST["paralelo"],
+				':codigo'		    =>	$_POST["codigo"],
+				':id_gestion'		        =>	$_POST["id_gestion"],
+				':id_curso'		=>	$_POST["id_curso"],
 			
 				':id'	            =>	$_POST["hidden_id"]
 				
 			);
 			$query = "
 			UPDATE paralelo
-			SET paralelo = :paralelo 
-			  
+			SET codigo = :codigo 
+				, id_gestion = :id_gestion
+				, id_curso = :id_curso 
+			   
 			WHERE id_paralelo = :id
 			";
 			$statement = $this->connect->prepare($query);

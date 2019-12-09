@@ -39,7 +39,7 @@
 			</div>
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
-				<li>
+			<li>
 					<a href="../home.php">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
 					</a>
@@ -50,10 +50,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_bimestre.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Bimestre</a>
+							<a href="../work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Colegio</a>
 						</li>
 						<li>
-							<a href="../work/index_asistencia.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Asistencia</a>
+							<a href="../work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuenta</a>
 						</li>
 						<li>
 							<a href="../work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Curso</a>
@@ -66,6 +66,12 @@
 						</li>
 						<li>
 							<a href="../work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Paralelo</a>
+						</li>
+						<li>
+							<a href="../work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Gestion</a>
+						</li>
+						<li>
+							<a href="../work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Nivel</a>
 						</li>
 					</ul>
 				</li>
@@ -92,10 +98,19 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_registros"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registrar</a>
+							<a href="../work/index_persona.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Personas</a>
 						</li>
 						<li>
-							<a href="../work/index_prof_curso.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+							<a href="../work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+						</li>
+						<li>
+							<a href="../work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> inscritos</a>
+						</li>
+						<li>
+							<a href="../work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Roles</a>
+						</li>
+						<li>
+							<a href="../work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Usuarios Cuenta</a>
 						</li>
 					</ul>
 				</li>
@@ -162,15 +177,12 @@
 							<th>NOMBRE</th>
 							<th>APELLIDO PATERNO</th>
 							<th>APELLIDO MATERNO</th>
-							<th>CARGO</th>
-							<th>CI</th>
-							<th>PASSWORD</th>
 							<th>DIRECCION</th>
+							<th>TELEFONO</th>
 							<th>CELULAR</th>
-                            <th>PADRE</th>
-                            <th>PROFESOR</th>
-							<th>FECHA</th>
-							<th>FOTO</th>
+							<th>DNI</th>
+							<th>EMAIL</th>
+                           
 							<th>MODIFICAR</th>
 							<th>ELIMINAR</th>
 						</tr>
@@ -262,7 +274,7 @@
 			<form method="post" id="api_crud_form">
 				<div class="modal-header">
 		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-		        	<h4 class="modal-title">Datos Padre de Familia</h4>
+		        	<h4 class="modal-title">Datos Estudiantes</h4>
 		      	</div>
 		      	<div class="modal-body">
 			<div class="panel-body">
@@ -274,57 +286,41 @@
 	                    </div>
 	                    <div class="col-md-6">
 	                        <label>Apellido Paterno </label>
-	                         <input type="text" name="ap_pt" class="form-control" id="ap_pt" placeholder="Ingrese Apellido Paterno" maxlength="">
+	                         <input type="text" name="papellido" class="form-control" id="papellido" placeholder="Ingrese Apellido Paterno" maxlength="">
 	                       <br>
 	                    </div>
 	                    <div class="col-md-6">
 	                        <label >Apellido Materno </label>
-	                        <input type="text" name="ap_mt" class="form-control" id="ap_mt" placeholder="Ingrese Apellido Materno" maxlength="">
+	                        <input type="text" name="sapellido" class="form-control" id="sapellido" placeholder="Ingrese Apellido Materno" maxlength="">
 	                        <br>
 	                    </div>       
-	                    <div class="col-md-6">
-	                        <label>Movil </label>
-	                        <input type="text" name="celular" class="form-control" id="celular" placeholder="Ingrese Numero Movil" maxlength="">
+	                    <div class="col-md-8">
+	                        <label>Direcci&oacute;n </label>
+	                        <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Ingrese Direccion" maxlength="">
 	                            <br>
 	                    </div>
 						<div class="col-md-6">
-	                        <label>Cargo </label>
-	                        <input type="text" name="cargo" class="form-control" id="cargo" placeholder="Ingrese Cargo" maxlength="">
+	                        <label>Telefono </label>
+	                        <input type="text" name="telefono" class="form-control" id="telefono" placeholder="Ingrese Telefono" maxlength="">
 	                            <br>
 	                    </div>  
-	                    <div class="col-md-8">
-	                        <label>Direcci&oacute;n </label>
-	                        <input type="text" name="direccion" class="form-control" id="direccion" placeholder="Ingrese Direccion" maxlength=""> 
+	                    <div class="col-md-6">
+	                        <label>Celular</label>
+	                        <input type="text" name="celular" class="form-control" id="celular" placeholder="Ingrese Celular" maxlength=""> 
 	                        <br>
 	                    </div>
                         <div class="col-md-6">
-	                        <label>Padre </label>
-	                        <input type="text" name="id_padre" class="form-control" id="id_padre" placeholder="Ingrese Nombre Padre" maxlength="">
+	                        <label>Dni </label>
+	                        <input type="text" name="dni" class="form-control" id="dni" placeholder="Ingrese DNI" maxlength="">
 	                            <br>
 	                    </div>
 						<div class="col-md-6">
-	                        <label>Profesor </label>
-	                        <input type="text" name="id_profesor" class="form-control" id="id_profesor" placeholder="Ingrese Numero Profesor" maxlength="">
+	                        <label>Email </label>
+	                        <input type="text" name="email" class="form-control" id="email" placeholder="Ingrese Email" maxlength="">
 	                            <br>
 	                    </div>   
-	                    <div class="col-sm-4">
-	                        <label>Fecha Registro</label>
-	                        <div class=" input-group">
-	                          <div class="input-group-addon">
-	                            <i class="fa fa-calendar"></i>
-	                          </div>
-	                          <input type="date" style="padding: 0px 12px;background-color: #FFFFFF;font-weight:bold;" id="fecha" name="fecha" class="form-control"  >
-	                        </div><br>
-	                    </div>
-	                    <div class="col-md-4">
-	                        <label>Nro Documento CI</label>
-	                        <input type="text" name="ci" class="form-control" id="ci" placeholder="Ingrese CI" maxlength="">
-	                    </div>
-	                    
-	                    <div class="col-md-4">
-	                    	<label>Foto</label>
-							<input type="text" name="foto" class="form-control" id="foto" placeholder="Ingrese Nombres" maxlength="">
-	                    </div>  
+	                  
+	                   
 			</div>         
         </div> 
         <div class="modal-footer">
@@ -357,7 +353,7 @@ $(document).ready(function(){
 	$('#add_button').click(function(){
 		$('#action').val('insert');
 		$('#button_action').val('Insert');
-		$('.modal-title').text('Datos de Padre de Familia');
+		$('.modal-title').text('Datos de Estudiante');
 		$('#apicrudModal').modal('show');
 	});
 
@@ -367,43 +363,36 @@ $(document).ready(function(){
 		{
 			alert("Ingresar Nombre");
 		}
-		else if($('#ap_pt').val() == '')
+		else if($('#papellido').val() == '')
 		{
 			alert("Ingrese Apellido Paterno ");
 		}
-		else if($('#ap_mt').val() == '')
+		else if($('#sapellido').val() == '')
 		{
 			alert("Ingresar Apellido Materno");
 		}
-		else if($('#cargo').val() == '')
+		else if($('#telefono').val() == '')
 		{
-			alert("Ingresar cargo");
+			alert("Ingresar telefono");
 		}
 		
-		else if($('#direccion').val() == '')
-		{
-			alert("Ingresar direccion");
-		}
 		else if($('#celular').val() == '')
 		{
 			alert("Ingresar celular");
 		}
-        else if($('#id_padre').val() == '')
+		else if($('#direccion').val() == '')
 		{
-			alert("Ingresar id padre");
+			alert("Ingresar direccion");
 		}
-        else if($('#id_profesor').val() == '')
+        else if($('#dni').val() == '')
 		{
-			alert("Ingresar id_profesor");
+			alert("Ingresar DNI");
 		}
-		else if($('#fecha').val() == '')
+        else if($('#email').val() == '')
 		{
-			alert("Ingresar fecha");
+			alert("Ingresar email");
 		}
-		else if($('#foto').val() == '')
-		{
-			alert("Ingresar foto");
-		}
+	
 		else
 		{
 			var form_data = $(this).serialize();
@@ -440,22 +429,18 @@ $(document).ready(function(){
 			dataType:"json",
 			success:function(data)
 			{
-				$('#hidden_id').val(data.id_estudiante);
+				$('#hidden_id').val(data.id_persona);
 				$('#nombre').val(data.nombre);
-				$('#ap_pt').val(data.ap_pt);
-				$('#ap_mt').val(data.ap_mt);
-				$('#cargo').val(data.cargo);
-				$('#ci').val(data.ci);
-				
-				$('#direccion').val(data.direccion);
+				$('#papellido').val(data.papellido);
+				$('#sapellido').val(data.sapellido);
+				$('#telefono').val(data.telefono);
 				$('#celular').val(data.celular);
-                $('#id_padre').val(data.id_padre);
-                $('#id_profesor').val(data.id_profesor);
-				$('#fecha').val(data.fecha);
-				$('#foto').val(data.foto);
+				$('#direccion').val(data.direccion);
+                $('#dni').val(data.dni);
+                $('#email').val(data.email);
 				$('#action').val('update');
 				$('#button_action').val('Update');
-				$('.modal-title').text('Modificar Datos Empleador');
+				$('.modal-title').text('Modificar Datos Estudiante');
 				$('#apicrudModal').modal('show');
 			}
 		})

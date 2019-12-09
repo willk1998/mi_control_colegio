@@ -32,10 +32,12 @@ class API
 
 	function insert()
 	{
-		if(isset($_POST["materia"]))
+		if(isset($_POST["codigo"]))
 		{
 			$form_data = array(
-				':materia'		    =>	$_POST["materia"]
+				':codigo'		    =>	$_POST["codigo"],
+				':nombre'		        =>	$_POST["nombre"],
+				':id_curso'		=>	$_POST["id_curso"],
 				
 				
 			
@@ -43,8 +45,8 @@ class API
 			);
 			$query = "
 			INSERT INTO materia
-			(materia) VALUES 
-			(:materia);
+			(codigo,nombre,id_curso) VALUES 
+			(:codigo,:nombre,:id_curso);
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -78,7 +80,9 @@ class API
 			foreach($statement->fetchAll() as $row)
 			{
 				$data['id_materia'] = $row['id_materia'];
-				$data['materia'] = $row['materia'];
+				$data['codigo'] = $row['codigo'];
+				$data['nombre'] = $row['nombre'];
+				$data['id_curso'] = $row['id_curso'];
 			
 			
 
@@ -90,18 +94,22 @@ class API
 
 	function update()
 	{
-		if(isset($_POST["materia"]))
+		if(isset($_POST["codigo"]))
 		{
 			$form_data = array(
-				':materia'		    =>	$_POST["materia"],
+				':codigo'		    =>	$_POST["codigo"],
+				':nombre'		        =>	$_POST["nombre"],
+				':id_curso'		=>	$_POST["id_curso"],
 			
 				':id'	            =>	$_POST["hidden_id"]
 				
 			);
 			$query = "
 			UPDATE materia
-			SET materia = :materia 
-			  
+			SET codigo = :codigo 
+				, nombre = :nombre
+				, id_curso = :id_curso 
+			   
 			WHERE id_materia = :id
 			";
 			$statement = $this->connect->prepare($query);

@@ -18,7 +18,7 @@ class API
 
 	function fetch_all()
 	{
-		$query = "SELECT * FROM notas ORDER BY id_nota;";
+		$query = "SELECT * FROM nota ORDER BY id_persona;";
 		$statement = $this->connect->prepare($query);
 		if($statement->execute())
 		{
@@ -32,25 +32,26 @@ class API
 
 	function insert()
 	{
-		if(isset($_POST["nota"]))
+		if(isset($_POST["id_persona"]))
 		{
 			$form_data = array(
-				':nota'		    =>	$_POST["nota"],
-				':id_bimestre'		        =>	$_POST["id_bimestre"],
-				':id_materia'		=>	$_POST["id_materia"],
-				':id_curso'		=>	$_POST["id_curso"],
-				':id_paralelo'		=>	$_POST["id_paralelo"],
-				':id_estudiante'	=>	$_POST["id_estudiante"],
+				':id_persona'		    =>	$_POST["id_persona"],
+				':id_curso'		        =>	$_POST["id_curso"],
+				':id_gestion'		=>	$_POST["id_gestion"],
+				':id_grupo'		=>	$_POST["id_grupo"],
+				':nota_b1'		=>	$_POST["nota_b1"],
+				':nota_b2'	=>	$_POST["nota_b2"],
 				
-                ':id_profesor'	=>	$_POST["id_profesor"]
-				
+                ':nota_b3'	=>	$_POST["nota_b3"]
+				':nota_b4'	=>	$_POST["nota_b4"]
+				':nota_final'	=>	$_POST["nota_final"]
 			
 
 			);
 			$query = "
-			INSERT INTO notas
-			(nota,id_bimestre,id_materia,id_curso,id_paralelo,id_estudiante,id_profesor) VALUES 
-			(:nota,:id_bimestre,:id_materia,:id_curso,:id_paralelo,:id_estudiante,:id_profesor);
+			INSERT INTO nota
+			(id_persona,id_curso,id_gestion,id_grupo,nota_b1,nota_b2,nota_b3,nota_b4,nota_final) VALUES 
+			(:id_persona,:id_curso,:id_gestion,:id_grupo,:nota_b1,:nota_b2,:nota_b3,:nota_b4,:nota_final);
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -77,22 +78,23 @@ class API
 
 	function fetch_single($id)
 	{
-		$query = "SELECT * FROM notas where id_nota='".$id."'";
+		$query = "SELECT * FROM nota where id_persona='".$id."'";
 		$statement = $this->connect->prepare($query);
 		if($statement->execute())
 		{
 			foreach($statement->fetchAll() as $row)
 			{
-				$data['id_nota'] = $row['id_nota'];
-				$data['nota'] = $row['nota'];
-				$data['id_bimestre'] = $row['id_bimestre'];
-				$data['id_materia'] = $row['id_materia'];
+				$data['id_persona'] = $row['id_persona'];
+				$data['id_persona'] = $row['id_persona'];
 				$data['id_curso'] = $row['id_curso'];
-				$data['id_paralelo'] = $row['id_paralelo'];
-				$data['id_estudiante'] = $row['id_estudiante'];
+				$data['id_gestion'] = $row['id_gestion'];
+				$data['id_grupo'] = $row['id_grupo'];
+				$data['nota_b1'] = $row['nota_b1'];
+				$data['nota_b2'] = $row['nota_b2'];
 				
-                $data['id_profesor'] = $row['id_profesor'];
-			
+                $data['nota_b3'] = $row['nota_b3'];
+				$data['nota_b4'] = $row['nota_b4'];
+				$data['nota_final'] = $row['nota_final'];
 
 
 			}
@@ -102,31 +104,35 @@ class API
 
 	function update()
 	{
-		if(isset($_POST["nota"]))
+		if(isset($_POST["id_persona"]))
 		{
 			$form_data = array(
-				':nota'		    =>	$_POST["nota"],
-				':id_bimestre'		        =>	$_POST["id_bimestre"],
-				':id_materia'		=>	$_POST["id_materia"],
-				':id_curso'		=>	$_POST["id_curso"],
-				':id_paralelo'		=>	$_POST["id_paralelo"],
-				':id_estudiante'	=>	$_POST["id_estudiante"],
+				':id_persona'		    =>	$_POST["id_persona"],
+				':id_curso'		        =>	$_POST["id_curso"],
+				':id_gestion'		=>	$_POST["id_gestion"],
+				':id_grupo'		=>	$_POST["id_grupo"],
+				':nota_b1'		=>	$_POST["nota_b1"],
+				':nota_b2'	=>	$_POST["nota_b2"],
 				
-                ':id_profesor'	=>	$_POST["id_profesor"],
+				':nota_b3'	=>	$_POST["nota_b3"],
+				':nota_b4'	=>	$_POST["nota_b4"],
+				':nota_final'	=>	$_POST["nota_final"],
 				':id'	            =>	$_POST["hidden_id"]
 				
 			);
 			$query = "
-			UPDATE notas
-			SET nota = :nota 
-				, id_bimestre = :id_bimestre
-				, id_materia = :id_materia 
-				, id_curso = :id_curso 
-				, id_paralelo = :id_paralelo 
-				, id_estudiante = :id_estudiante
+			UPDATE nota
+			SET id_persona = :id_persona 
+				, id_curso = :id_curso
+				, id_gestion = :id_gestion 
+				, id_grupo = :id_grupo 
+				, nota_b1 = :nota_b1 
+				, nota_b2 = :nota_b2
 				
-                , id_profesor = :id_profesor    
-			WHERE id_nota = :id
+				, nota_b3 = :nota_b3   
+				, nota_b4 = :nota_b4 
+				, nota_final = :nota_final  
+			WHERE id_persona = :id
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -152,7 +158,7 @@ class API
 	}
 	function delete($id)
 	{
-		$query = "DELETE FROM notas WHERE id_nota = '".$id."'";
+		$query = "DELETE FROM nota WHERE id_persona = '".$id."'";
 		$statement = $this->connect->prepare($query);
 		if($statement->execute())
 		{

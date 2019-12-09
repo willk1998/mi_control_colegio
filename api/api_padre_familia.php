@@ -18,7 +18,7 @@ class API
 
 	function fetch_all()
 	{
-		$query = "SELECT * FROM padre_familia ORDER BY id_padre;";
+		$query = "SELECT * FROM persona ORDER BY id_persona;";
 		$statement = $this->connect->prepare($query);
 		if($statement->execute())
 		{
@@ -36,22 +36,20 @@ class API
 		{
 			$form_data = array(
 				':nombre'		    =>	$_POST["nombre"],
-				':ap_pt'		        =>	$_POST["ap_pt"],
-				':ap_mt'		=>	$_POST["ap_mt"],
-				':cargo'		=>	$_POST["cargo"],
-				':ci'	=>	$_POST["ci"],
-				':password'  => $_POST["password"],
-				':direccion'  => $_POST["direccion"],
+				':papellido'		        =>	$_POST["papellido"],
+				':sapellido'		=>	$_POST["sapellido"],
+				':direccion'		=>	$_POST["direccion"],
+				':telefono'  => $_POST["telefono"],
 				':celular'  => $_POST["celular"],
-				':fecha'  => $_POST["fecha"],	
-				':foto'  => $_POST["foto"]
+				':dni'  => $_POST["dni"],	
+				':email'  => $_POST["email"]
 				
 
 			);
 			$query = "
-			INSERT INTO padre_familia
-			(nombre,ap_pt,ap_mt,cargo,ci,password,direccion,celular,fecha,foto) VALUES 
-			(:nombre,:ap_pt,:ap_mt,:cargo,:ci,:password,:direccion,:celular,:fecha,:foto);
+			INSERT INTO persona
+			(nombre,papellido,sapellido,direccion,telefono,celular,dni,email) VALUES 
+			(:nombre,:papellido,:sapellido,:direccion,:telefono,:celular,:dni,:email);
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -78,23 +76,21 @@ class API
 
 	function fetch_single($id)
 	{
-		$query = "SELECT * FROM padre_familia where id_padre='".$id."'";
+		$query = "SELECT * FROM persona where id_persona='".$id."'";
 		$statement = $this->connect->prepare($query);
 		if($statement->execute())
 		{
 			foreach($statement->fetchAll() as $row)
 			{
-				$data['id_padre'] = $row['id_padre'];
+				$data['id_persona'] = $row['id_persona'];
 				$data['nombre'] = $row['nombre'];
-				$data['ap_pt'] = $row['ap_pt'];
-				$data['ap_mt'] = $row['ap_mt'];
-				$data['cargo'] = $row['cargo'];
-				$data['ci'] = $row['ci'];
-				$data['password'] = $row['password'];
+				$data['papellido'] = $row['papellido'];
+				$data['sapellido'] = $row['sapellido'];
 				$data['direccion'] = $row['direccion'];
+				$data['telefono'] = $row['telefono'];
 				$data['celular'] = $row['celular'];
-				$data['fecha'] = $row['fecha'];
-				$data['foto'] = $row['foto'];
+				$data['dni'] = $row['dni'];
+				$data['email'] = $row['email'];
 				
 
 			}
@@ -108,30 +104,26 @@ class API
 		{
 			$form_data = array(
 				':nombre'		    =>	$_POST["nombre"],
-				':ap_pt'		        =>	$_POST["ap_pt"],
-				':ap_mt'		=>	$_POST["ap_mt"],
-				':cargo'		=>	$_POST["cargo"],
-				':ci'	=>	$_POST["ci"],
-				':password'	=>	$_POST["password"],
-				':direccion'	=>	$_POST["direccion"],
+				':papellido'		        =>	$_POST["papellido"],
+				':sapellido'		=>	$_POST["sapellido"],
+				':direccion'		=>	$_POST["direccion"],
+				':telefono'	=>	$_POST["telefono"],
 				':celular'	=>	$_POST["celular"],
-				':fecha'	=>	$_POST["fecha"],
-				':foto'	=>	$_POST["foto"],
+				':dni'	=>	$_POST["dni"],
+				':email'	=>	$_POST["email"],
 				':id'	            =>	$_POST["hidden_id"]
 			);
 			$query = "
-			UPDATE padre_familia 
+			UPDATE persona 
 			SET nombre = :nombre 
-				, ap_pt = :ap_pt
-				, ap_mt = :ap_mt 
-				, cargo = :cargo 
-				, ci = :ci   
-				, password = :password
-				, direccion = :direccion
+				, papellido = :papellido
+				, sapellido = :sapellido 
+				, direccion = :direccion 
+				, telefono = :telefono
 				, celular = :celular
-				, fecha = :fecha
-				, foto = :foto
-			WHERE id_padre = :id
+				, dni = :dni
+				, email = :email
+			WHERE id_persona = :id
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -157,7 +149,7 @@ class API
 	}
 	function delete($id)
 	{
-		$query = "DELETE FROM padre_familia WHERE id_padre = '".$id."'";
+		$query = "DELETE FROM persona WHERE id_persona = '".$id."'";
 		$statement = $this->connect->prepare($query);
 		if($statement->execute())
 		{

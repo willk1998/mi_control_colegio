@@ -2,7 +2,7 @@
 
 //fetch.php
 
-$api_url = "http://localhost/grupo2/api/test_api_notas.php?action=fetch_all";
+$api_url = "http://localhost/mi_control_colegio/api/test_api_notas.php?action=fetch_all";
 
 $client = curl_init($api_url);
 
@@ -20,15 +20,17 @@ if(count($result) > 0)
 	{
 		$output .= '
 		<tr>
-			<td>'.$row->nota.'</td>
-			<td>'.$row->id_bimestre.'</td>
-            <td>'.$row->id_materia.'</td>
-            <td>'.$row->id_curso.'</td>
-			<td>'.$row->id_paralelo.'</td>
-            <td>'.$row->id_estudiante.'</td>
-            <td>'.$row->id_profesor.'</td>
-			<td><button type="button" name="edit" class="btn btn-success btn-raised btn-xs edit" id="'.$row->id_nota.'"><i class="zmdi zmdi-refresh"></button></td>
-			<td><button type="button" name="delete" class="btn  btn-danger btn-raised btn-xs delete" id="'.$row->id_nota.'"><i class="zmdi zmdi-delete"></button></td>
+			<td>'.$row->id_persona.'</td>
+			<td>'.$row->id_curso.'</td>
+            <td>'.$row->id_gestion.'</td>
+            <td>'.$row->id_grupo.'</td>
+			<td>'.$row->nota_b1.'</td>
+            <td>'.$row->nota_b2.'</td>
+			<td>'.$row->nota_b3.'</td>
+			<td>'.$row->nota_b4.'</td>
+            <td>'.$row->nota_final.'</td>
+			<td><button type="button" name="edit" class="btn btn-success btn-raised btn-xs edit" id="'.$row->id_persona.'"><i class="zmdi zmdi-refresh"></button></td>
+			<td><button type="button" name="delete" class="btn  btn-danger btn-raised btn-xs delete" id="'.$row->id_persona.'"><i class="zmdi zmdi-delete"></button></td>
 		</tr>
 		';
 	}

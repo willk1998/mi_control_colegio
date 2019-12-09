@@ -9,20 +9,16 @@ if(isset($_POST["action"]))
 		echo "insert"; 
 		$form_data = array(
 			'nombre'		    =>	$_POST['nombre'],
-			'ap_pt'				=>	$_POST['ap_pt'],
-			'ap_mt'			=>	$_POST['ap_mt'],
-			'cargo'			=>	$_POST['cargo'],
-			'ci'	=>	$_POST['ci'],
-			
-			'direccion'	=>	$_POST['direccion'],
+			'papellido'				=>	$_POST['papellido'],
+			'sapellido'			=>	$_POST['sapellido'],
+			'direccion'			=>	$_POST['direccion'],
+            'telefono'	=>	$_POST['telefono'],
             'celular'	=>	$_POST['celular'],
-            'id_padre'	=>	$_POST['id_padre'],
-            'id_profesor'	=>	$_POST['id_profesor'],
-			'fecha'	=>	$_POST['fecha'],
-			'foto'	=>	$_POST['foto']
+            'dni'	=>	$_POST['dni'],
+			'email'	=>	$_POST['email']
 			
 		);
-		$api_url = "http://localhost/grupo2/api/test_api_estudiante.php?action=insert";  //change this url as per your folder path for api folder
+		$api_url = "http://localhost/mi_control_colegio/api/test_api_estudiante.php?action=insert";  //change this url as per your folder path for api folder
 		$client = curl_init($api_url);
 		curl_setopt($client, CURLOPT_POST, true);
 		curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
@@ -46,7 +42,7 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == 'fetch_single')
 	{
 		$id = $_POST["id"];
-		$api_url = "http://localhost/grupo2/api/test_api_estudiante.php?action=fetch_single&id=".$id."";  //change this url as per your folder path for api folder
+		$api_url = "http://localhost/mi_control_colegio/api/test_api_estudiante.php?action=fetch_single&id=".$id."";  //change this url as per your folder path for api folder
 		$client = curl_init($api_url);
 		curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
 		$response = curl_exec($client);
@@ -56,20 +52,16 @@ if(isset($_POST["action"]))
 	{
 		$form_data = array(
 			'nombre'		=>	$_POST['nombre'],
-			'ap_pt'				=>	$_POST['ap_pt'],
-			'ap_mt'			=>	$_POST['ap_mt'],
-			'cargo'			=>	$_POST['cargo'],
-			'ci'	=>	$_POST['ci'],
-			'password'	=>	$_POST['password'],
-			'direccion'	=>	$_POST['direccion'],
+			'papellido'				=>	$_POST['papellido'],
+			'sapellido'			=>	$_POST['sapellido'],
+			'direccion'			=>	$_POST['direccion'],
+            'telefono'	=>	$_POST['telefono'],
             'celular'	=>	$_POST['celular'],
-            'id_padre'	=>	$_POST['id_padre'],
-            'id_profesor'	=>	$_POST['id_profesor'],
-			'fecha'	=>	$_POST['fecha'],
-			'foto'	=>	$_POST['foto'],
+            'dni'	=>	$_POST['dni'],
+			'email'	=>	$_POST['email'],
 			'hidden_id'				=>	$_POST['hidden_id']
 		);
-		$api_url = "http://localhost/grupo2/api/test_api_estudiante.php?action=update";  //change this url as per your folder path for api folder
+		$api_url = "http://localhost/mi_control_colegio/api/test_api_estudiante.php?action=update";  //change this url as per your folder path for api folder
 		$client = curl_init($api_url);
 		curl_setopt($client, CURLOPT_POST, true);
 		curl_setopt($client, CURLOPT_POSTFIELDS, $form_data);
@@ -92,7 +84,7 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == 'delete')
 	{
 		$id = $_POST['id'];
-		$api_url = "http://localhost/grupo2/api/test_api_estudiante.php?action=delete&id=".$id.""; //change this url as per your folder path for api folder
+		$api_url = "http://localhost/mi_control_colegio/api/test_api_estudiante.php?action=delete&id=".$id.""; //change this url as per your folder path for api folder
 		$client = curl_init($api_url);
 		curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
 		$response = curl_exec($client);

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -50,10 +51,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_bimestre.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Bimestre</a>
+							<a href="../work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Colegio</a>
 						</li>
 						<li>
-							<a href="../work/index_asistencia.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Asistencia</a>
+							<a href="../work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuenta</a>
 						</li>
 						<li>
 							<a href="../work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Curso</a>
@@ -66,6 +67,12 @@
 						</li>
 						<li>
 							<a href="../work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Paralelo</a>
+						</li>
+						<li>
+							<a href="../work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Gestion</a>
+						</li>
+						<li>
+							<a href="../work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Nivel</a>
 						</li>
 					</ul>
 				</li>
@@ -92,10 +99,19 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_registros"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registrar</a>
+							<a href="../work/index_persona.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Personas</a>
 						</li>
 						<li>
-							<a href="../work/index_prof_curso.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+							<a href="../work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+						</li>
+						<li>
+							<a href="../work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> inscritos</a>
+						</li>
+						<li>
+							<a href="../work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Roles</a>
+						</li>
+						<li>
+							<a href="../work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Usuarios Cuenta</a>
 						</li>
 					</ul>
 				</li>
@@ -151,15 +167,16 @@
 						<div class="col-xs-12">
 							<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 								<li class="active"><a id="add_button" data-toggle="tab">New</a></li>
-								<li class="active"><a href="grupo2/home.html" data-toggle="tab">List</a></li>
+								<li class="active"><a href="../home.html" data-toggle="tab">List</a></li>
 							</ul>
 						</div>
 					</div>
-			<div class="table-responsive">
+					<div class="table-responsive">
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>CURSO</th>
+							<th>Id nivel</th>
+                            <th>Id colegio</th>
 							
 					
 							<th>MODIFICAR</th>
@@ -169,6 +186,7 @@
 					<tbody></tbody>
 				</table>
 			</div>
+		</div>
 
 	</section>
 <!-- Notifications area -->
@@ -245,7 +263,7 @@
 		    </div>
 	  	</div>
 	</div>
-	<!--INICIO MODAL 1-->
+<!--modal de regitrar nuevos datos-->
 <div id="apicrudModal" class="modal fade bs-example-modal-lg" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -256,12 +274,17 @@
 		      	</div>
 		      	<div class="modal-body">
 			<div class="panel-body">
-	                    <div class="col-sm-12">
+            <div class="col-md-6">
 	                        
-	                        <label>Curso </label>
-	                        <input type="text" name="curso" class="form-control" id="curso" placeholder="Ingrese cursos" maxlength="">
+	                        <label>Id Nivel </label>
+	                        <input type="text" name="id_nivel" class="form-control" id="id_nivel" placeholder="Ingrese id_nivel de colegio" maxlength="">
 	                        <br>
 	                    </div>
+	                    <div class="col-md-6">
+	                        <label>Id Colegio </label>
+	                         <input type="text" name="id_colegio" class="form-control" id="id_colegio" placeholder="Ingrese id_colegio" maxlength="">
+	                       <br>
+	                    </div>  
 	                  
 			</div>         
         </div> 
@@ -269,7 +292,7 @@
 		<input type="hidden" name="hidden_id" id="hidden_id" />
 			    	<input type="hidden" name="action" id="action" value="insert" />
 			    	<input type="submit" name="button_action" id="button_action" class="btn btn-info" value="Insert" />
-			    	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			    	
         </div> 
 			</form>
 		</div>
@@ -295,15 +318,23 @@ $(document).ready(function(){
 	$('#add_button').click(function(){
 		$('#action').val('insert');
 		$('#button_action').val('Insert');
-		$('.modal-title').text('Datos de curso');
+		$('.modal-title').text('Datos de Curso');
 		$('#apicrudModal').modal('show');
 	});
 
 	$('#api_crud_form').on('submit', function(event){
 		event.preventDefault();
-		if($('#curso').val() == '')
+        if($('#id_nivel').val() == '')
 		{
-			alert("Ingresar curso");
+			alert("Ingresar id_nivel");
+		}
+		else if($('#id_colegio').val() == '')
+		{
+			alert("Ingrese id_colegio ");
+		}
+		else if($('#email').val() == '')
+		{
+			alert("Ingresar email");
 		}
 		
 		else
@@ -343,12 +374,14 @@ $(document).ready(function(){
 			success:function(data)
 			{
 				$('#hidden_id').val(data.id_curso);
-				$('#curso').val(data.curso);
+				$('#id_nivel').val(data.id_nivel);
+                $('#id_colegio').val(data.id_colegio);
+                $('#email').val(data.email);
 				
 				
 				$('#action').val('update');
 				$('#button_action').val('Update');
-				$('.modal-title').text('Modificar Datos Empleador');
+				$('.modal-title').text('Modificar Datos Colegio');
 				$('#apicrudModal').modal('show');
 			}
 		})
@@ -374,6 +407,7 @@ $(document).ready(function(){
 
 });
 </script>
+
 	<!--====== Scripts -->
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../js/sweetalert2.min.js"></script>
@@ -387,17 +421,6 @@ $(document).ready(function(){
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

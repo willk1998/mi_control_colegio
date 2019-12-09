@@ -32,19 +32,19 @@ class API
 
 	function insert()
 	{
-		if(isset($_POST["curso"]))
+		if(isset($_POST["id_nivel"]))
 		{
 			$form_data = array(
-				':curso'		    =>	$_POST["curso"]
-				
+				':id_nivel'		    =>	$_POST["id_nivel"],
+				':id_colegio'		    =>	$_POST["id_colegio"]
 				
 			
 
 			);
 			$query = "
 			INSERT INTO curso
-			(curso) VALUES 
-			(:curso);
+			(id_nivel,id_colegio) VALUES 
+			(:id_nivel,:id_colegio);
 			";
 			$statement = $this->connect->prepare($query);
 			if($statement->execute($form_data))
@@ -78,7 +78,8 @@ class API
 			foreach($statement->fetchAll() as $row)
 			{
 				$data['id_curso'] = $row['id_curso'];
-				$data['curso'] = $row['curso'];
+				$data['id_nivel'] = $row['id_nivel'];
+				$data['id_colegio'] = $row['id_colegio'];
 			
 			
 
@@ -90,18 +91,18 @@ class API
 
 	function update()
 	{
-		if(isset($_POST["curso"]))
+		if(isset($_POST["id_nivel"]))
 		{
 			$form_data = array(
-				':curso'		    =>	$_POST["curso"],
-			
+				':id_nivel'		    =>	$_POST["id_nivel"],
+				':id_colegio'		    =>	$_POST["id_colegio"],
 				':id'	            =>	$_POST["hidden_id"]
 				
 			);
 			$query = "
 			UPDATE curso
-			SET curso = :curso 
-			  
+			SET id_nivel = :id_nivel 
+				id_colegio = :id_colegio
 			WHERE id_curso = :id
 			";
 			$statement = $this->connect->prepare($query);

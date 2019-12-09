@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,7 +39,7 @@
 			</div>
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
-				<li>
+			<li>
 					<a href="../home.php">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
 					</a>
@@ -51,10 +50,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_bimestre.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Bimestre</a>
+							<a href="../work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Colegio</a>
 						</li>
 						<li>
-							<a href="../work/index_asistencia.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Asistencia</a>
+							<a href="../work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuenta</a>
 						</li>
 						<li>
 							<a href="../work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Curso</a>
@@ -67,6 +66,12 @@
 						</li>
 						<li>
 							<a href="../work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Paralelo</a>
+						</li>
+						<li>
+							<a href="../work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Gestion</a>
+						</li>
+						<li>
+							<a href="../work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Nivel</a>
 						</li>
 					</ul>
 				</li>
@@ -93,10 +98,19 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_registros"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registrar</a>
+							<a href="../work/index_persona.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Personas</a>
 						</li>
 						<li>
-							<a href="../work/index_prof_curso.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+							<a href="../work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+						</li>
+						<li>
+							<a href="../work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> inscritos</a>
+						</li>
+						<li>
+							<a href="../work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Roles</a>
+						</li>
+						<li>
+							<a href="../work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Usuarios Cuenta</a>
 						</li>
 					</ul>
 				</li>
@@ -156,20 +170,19 @@
 							</ul>
 						</div>
 					</div>
-
-
 					<div class="table-responsive">
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>NOTA</th>
-							<th>BIMESTRE</th>
-							<th>MATERIA</th>
-							<th>CURSO</th>
-							<th>PARALELO</th>
-							<th>ESTUDIANTE</th>
-							<th>PROFESOR</th>
-					
+							<th>Id Persona</th>
+							<th>Id Curso</th>
+							<th>Id Gestion</th>
+							<th>Id Grupo</th>
+							<th>Nota_B1</th>
+							<th>Nota_B2</th>
+							<th>Nota_B3</th>
+							<th>Nota_B4</th>
+							<th>Nota_Final</th>
 							<th>MODIFICAR</th>
 							<th>ELIMINAR</th>
 						</tr>
@@ -177,7 +190,6 @@
 					<tbody></tbody>
 				</table>
 			</div>
-		
 
 	</section>
 <!-- Notifications area -->
@@ -254,61 +266,73 @@
 		    </div>
 	  	</div>
 	</div>
-	
-<!--INICIO MODAL 1-->
+
+	<!--INICIO MODAL 1-->
 <div id="apicrudModal" class="modal fade bs-example-modal-lg" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<form method="post" id="api_crud_form">
 				<div class="modal-header">
 		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
-		        	<h4 class="modal-title">Datos Profesor</h4>
+		        	<h4 class="modal-title">Datos Nota</h4>
 		      	</div>
 		      	<div class="modal-body">
 			<div class="panel-body">
-	                    <div class="col-sm-12">
+	                    <div class="col-md-6">
 	                        
-	                        <label>Nota </label>
-	                        <input type="text" name="nota" class="form-control" id="nota" placeholder="Ingrese notas" maxlength="">
+	                        <label>Id Persona </label>
+	                        <input type="text" name="id_persona" class="form-control" id="id_persona" placeholder="Ingrese Id Persona" maxlength="">
 	                        <br>
 	                    </div>
 	                    <div class="col-md-6">
-	                        <label>Bimestre </label>
-	                         <input type="text" name="id_bimestre" class="form-control" id="id_bimestre" placeholder="Ingrese Bimestre" maxlength="">
+	                        <label>Id Curso </label>
+	                         <input type="text" name="id_curso" class="form-control" id="id_curso" placeholder="Ingrese Id Curso" maxlength="">
 	                       <br>
 	                    </div>
 	                    <div class="col-md-6">
-	                        <label >Materia </label>
-	                        <input type="text" name="id_materia" class="form-control" id="id_materia" placeholder="Ingrese Materia" maxlength="">
+	                        <label >Id Gestion </label>
+	                        <input type="text" name="id_gestion" class="form-control" id="id_gestion" placeholder="Ingrese Id Gestion" maxlength="">
 	                        <br>
 	                    </div>       
 	                    <div class="col-md-6">
-	                        <label>Curso </label>
-	                        <input type="text" name="id_curso" class="form-control" id="id_curso" placeholder="Ingrese Curso" maxlength="">
+	                        <label>Id Grupo </label>
+	                        <input type="text" name="id_grupo" class="form-control" id="id_grupo" placeholder="Ingrese Id Grupo" maxlength="">
 	                            <br>
 	                    </div>
 						<div class="col-md-6">
-	                        <label>Paralelo </label>
-	                        <input type="text" name="id_paralelo" class="form-control" id="id_paralelo" placeholder="Ingrese Paralelo" maxlength="">
+	                        <label>Nota_B1 </label>
+	                        <input type="text" name="nota_b1" class="form-control" id="nota_b1" placeholder="Ingrese Nota_B1" maxlength="">
 	                            <br>
 	                    </div>  
+	                    <div class="col-md-6">
+	                        <label>Nota_B2</label>
+	                        <input type="text" name="nota_b2" class="form-control" id="nota_b2" placeholder="Ingrese Nota_B2" maxlength=""> 
+	                        <br>
+	                    </div>
                         <div class="col-md-6">
-	                        <label>Estudiante </label>
-	                        <input type="text" name="id_estudiante" class="form-control" id="id_estudiante" placeholder="Ingrese Estudiante" maxlength="">
+	                        <label>Nota_B2 </label>
+	                        <input type="text" name="nota_b3" class="form-control" id="nota_b3" placeholder="Ingrese Nota_B3" maxlength="">
 	                            <br>
-	                    </div> 
-	                
-	                    <div class="col-md-4">
-	                        <label>Profesor</label>
-	                        <input type="text" name="id_profesor" class="form-control" id="id_profesor" placeholder="Ingrese Profesor" maxlength="">
-	                    </div> 
+	                    </div>
+						<div class="col-md-6">
+	                        <label>Nota_B4 </label>
+	                        <input type="text" name="nota_b4" class="form-control" id="nota_b4" placeholder="Ingrese Nota_B4" maxlength="">
+	                            <br>
+	                    </div>
+						<div class="col-md-6">
+	                        <label>Nota_Final </label>
+	                        <input type="text" name="nota_final" class="form-control" id="nota_final" placeholder="Ingrese Nota_Final" maxlength="">
+	                            <br>
+	                    </div>   
+	                  
+	                   
 			</div>         
         </div> 
         <div class="modal-footer">
 		<input type="hidden" name="hidden_id" id="hidden_id" />
 			    	<input type="hidden" name="action" id="action" value="insert" />
 			    	<input type="submit" name="button_action" id="button_action" class="btn btn-info" value="Insert" />
-			    
+			    	
         </div> 
 			</form>
 		</div>
@@ -340,36 +364,43 @@ $(document).ready(function(){
 
 	$('#api_crud_form').on('submit', function(event){
 		event.preventDefault();
-		if($('#nota').val() == '')
+		if($('#id_persona').val() == '')
 		{
-			alert("Ingresar nota");
+			alert("Ingresar Id_persona");
 		}
-		else if($('#id_bimestre').val() == '')
+		else if($('#id_curso').val() == '')
 		{
-			alert("Ingrese Bimestre ");
+			alert("Ingrese Id Curso ");
 		}
-		else if($('#id_materia').val() == '')
+		else if($('#id_gestion').val() == '')
 		{
-			alert("Ingresar Materia");
+			alert("Ingresar Id Gestion");
+		}
+		else if($('#id_grupo').val() == '')
+		{
+			alert("Ingresar id_grupo");
+		}
+		else if($('#nota_b1').val() == '')
+		{
+			alert("Ingresar nota_b1");
 		}
 		
-		else if($('#curso').val() == '')
+		else if($('#nota_b2').val() == '')
 		{
-			alert("Ingresar curso");
+			alert("Ingresar nota_b2");
 		}
-
-		else if($('#id_paralelo').val() == '')
-		{
-			alert("Ingresar paralelo");
-		}
-        else if($('#id_estudiante').val() == '')
-		{
-			alert("Ingresar estudiante");
 		
-		}
-		else if($('#id_profesor').val() == '')
+        else if($('#nota_b3').val() == '')
 		{
-			alert("Ingresar profesor");
+			alert("Ingresar nota_b3");
+		}
+        else if($('#nota_b4').val() == '')
+		{
+			alert("Ingresar nota_b4");
+		}
+		else if($('#nota_final').val() == '')
+		{
+			alert("Ingresar nota_final");
 		}
 		else
 		{
@@ -407,18 +438,19 @@ $(document).ready(function(){
 			dataType:"json",
 			success:function(data)
 			{
-				$('#hidden_id').val(data.id_nota);
-				$('#nota').val(data.nota);
-				$('#id_bimestre').val(data.id_bimestre);
-				$('#id_materia').val(data.id_materia);
-				$('#id_paralelo').val(data.id_paralelo);
-				$('#id_profesor').val(data.id_profesor);
+				$('#hidden_id').val(data.id_persona);
+				$('#id_persona').val(data.id_persona);
 				$('#id_curso').val(data.id_curso);
-				$('#id_estudiante').val(data.id_estudiante);
-				
+				$('#id_gestion').val(data.id_gestion);
+				$('#id_grupo').val(data.id_grupo);
+				$('#nota_b1').val(data.nota_b1);
+				$('#nota_b2').val(data.nota_b2);
+                $('#nota_b3').val(data.nota_b3);
+                $('#nota_b4').val(data.nota_b4);
+				$('#nota_final').val(data.nota_final);
 				$('#action').val('update');
 				$('#button_action').val('Update');
-				$('.modal-title').text('Modificar Datos Empleador');
+				$('.modal-title').text('Modificar Datos Estudiante');
 				$('#apicrudModal').modal('show');
 			}
 		})
@@ -457,18 +489,6 @@ $(document).ready(function(){
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

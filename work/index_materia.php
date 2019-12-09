@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="../css/main.css">
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
@@ -50,10 +51,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_bimestre.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Bimestre</a>
+							<a href="../work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Colegio</a>
 						</li>
 						<li>
-							<a href="../work/index_asistencia.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Asistencia</a>
+							<a href="../work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuenta</a>
 						</li>
 						<li>
 							<a href="../work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Curso</a>
@@ -66,6 +67,12 @@
 						</li>
 						<li>
 							<a href="../work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Paralelo</a>
+						</li>
+						<li>
+							<a href="../work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Gestion</a>
+						</li>
+						<li>
+							<a href="../work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Nivel</a>
 						</li>
 					</ul>
 				</li>
@@ -92,10 +99,19 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_registros"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registrar</a>
+							<a href="../work/index_persona.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Personas</a>
 						</li>
 						<li>
-							<a href="../work/index_prof_curso.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+							<a href="../work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+						</li>
+						<li>
+							<a href="../work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> inscritos</a>
+						</li>
+						<li>
+							<a href="../work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Roles</a>
+						</li>
+						<li>
+							<a href="../work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Usuarios Cuenta</a>
 						</li>
 					</ul>
 				</li>
@@ -151,7 +167,7 @@
 						<div class="col-xs-12">
 							<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 								<li class="active"><a id="add_button" data-toggle="tab">New</a></li>
-								<li class="active"><a href="grupo2/home.html" data-toggle="tab">List</a></li>
+								<li class="active"><a href="../home.html" data-toggle="tab">List</a></li>
 							</ul>
 						</div>
 					</div>
@@ -159,7 +175,9 @@
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>MATERIA</th>
+							<th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Id Curso</th>
 							
 					
 							<th>MODIFICAR</th>
@@ -169,6 +187,8 @@
 					<tbody></tbody>
 				</table>
 			</div>
+		</div>
+
 	</section>
 <!-- Notifications area -->
 <section class="full-box Notifications-area">
@@ -244,7 +264,7 @@
 		    </div>
 	  	</div>
 	</div>
-	<!--INICIO MODAL 1-->
+<!--modal de regitrar nuevos datos-->
 <div id="apicrudModal" class="modal fade bs-example-modal-lg" role="dialog">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -255,12 +275,22 @@
 		      	</div>
 		      	<div class="modal-body">
 			<div class="panel-body">
-	                    <div class="col-sm-12">
+            <div class="col-sm-12">
 	                        
-	                        <label>Materia </label>
-	                        <input type="text" name="materia" class="form-control" id="materia" placeholder="Ingrese materias" maxlength="">
+	                        <label>Codigo </label>
+	                        <input type="text" name="codigo" class="form-control" id="codigo" placeholder="Ingrese Codigo" maxlength="">
 	                        <br>
 	                    </div>
+	                    <div class="col-md-6">
+	                        <label>Nombre </label>
+	                         <input type="text" name="nombre" class="form-control" id="nombre" placeholder="Ingrese Materia" maxlength="">
+	                       <br>
+	                    </div>
+	                    <div class="col-md-6">
+	                        <label >Id Curso </label>
+	                        <input type="text" name="id_curso" class="form-control" id="id_curso" placeholder="Ingrese Id Curso" maxlength="">
+	                        <br>
+	                    </div>       
 	                  
 			</div>         
         </div> 
@@ -268,7 +298,7 @@
 		<input type="hidden" name="hidden_id" id="hidden_id" />
 			    	<input type="hidden" name="action" id="action" value="insert" />
 			    	<input type="submit" name="button_action" id="button_action" class="btn btn-info" value="Insert" />
-			    	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			    	
         </div> 
 			</form>
 		</div>
@@ -294,15 +324,23 @@ $(document).ready(function(){
 	$('#add_button').click(function(){
 		$('#action').val('insert');
 		$('#button_action').val('Insert');
-		$('.modal-title').text('Datos de materia');
+		$('.modal-title').text('Datos de Materia');
 		$('#apicrudModal').modal('show');
 	});
 
 	$('#api_crud_form').on('submit', function(event){
 		event.preventDefault();
-		if($('#materia').val() == '')
+        if($('#codigo').val() == '')
 		{
-			alert("Ingresar materia");
+			alert("Ingresar codigo");
+		}
+		else if($('#nombre').val() == '')
+		{
+			alert("Ingrese nombre ");
+		}
+		else if($('#id_curso').val() == '')
+		{
+			alert("Ingresar id_curso");
 		}
 		
 		else
@@ -342,12 +380,14 @@ $(document).ready(function(){
 			success:function(data)
 			{
 				$('#hidden_id').val(data.id_materia);
-				$('#materia').val(data.materia);
+				$('#codigo').val(data.codigo);
+                $('#nombre').val(data.nombre);
+                $('#id_curso').val(data.id_curso);
 				
 				
 				$('#action').val('update');
 				$('#button_action').val('Update');
-				$('.modal-title').text('Modificar Datos Empleador');
+				$('.modal-title').text('Modificar Datos Grupo');
 				$('#apicrudModal').modal('show');
 			}
 		})
@@ -373,6 +413,7 @@ $(document).ready(function(){
 
 });
 </script>
+
 	<!--====== Scripts -->
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../js/sweetalert2.min.js"></script>
@@ -386,17 +427,6 @@ $(document).ready(function(){
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
