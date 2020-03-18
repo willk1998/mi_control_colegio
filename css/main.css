@@ -83,6 +83,7 @@ body, html{
 	top: 0;
 	height: 100%;
 	transition: all .3s ease-in-out;
+	background-color: rgba(206, 221, 0, 0.774);
 }
 /*sideBar*/
 .dashboard-sideBar,
@@ -92,8 +93,8 @@ body, html{
 .dashboard-sideBar{
 	left: 0;
 	z-index: 2;
-	background-image: url('assets/img/sideBar-font.jpg');
-	border-right: 1px solid rgba(255, 255, 255, .4);
+	background-color: rgb(13, 168, 240);
+	
 	overflow: hidden;
 }
 .dashboard-sideBar-ct{
@@ -149,7 +150,7 @@ body, html{
 	transition: all .3s ease-in-out;
 }
 .dashboard-sideBar-UserInfo ul > li > a:hover{
-	color: #FF5722;
+	color: rgb(0, 0, 0);
 }
 .dashboard-sideBar-Menu{
 	padding-top: 15px;
@@ -178,7 +179,7 @@ body, html{
 	outline: none;
 }
 .dashboard-sideBar-Menu > li > a:hover{
-	background-color: rgba(255, 255, 255, .1);
+	background-color: rgba(136, 128, 11, 0.993);
 }
 .dashboard-sideBar-Menu > li > ul{
 	position: relative;
@@ -224,10 +225,10 @@ body, html{
 	outline: none;
 }
 .dashboard-Navbar{
-	background-color: #000;
+	background-color: rgb(38, 42, 100);
 	overflow: hidden;
 }
-.dashboard-Navbar > ul >li,
+.dashboard-Navbar > ul >li,	
 .dashboard-Navbar > ul > li > a{
 	display: inline-block;
 	width: 50px;
@@ -240,7 +241,7 @@ body, html{
 	position: relative;
 }
 .dashboard-Navbar > ul > li > a:hover{
-	background-color: rgba(255, 255, 255, .1);
+	background-color: rgba(197, 40, 40, 0.993);
 	color: #FF5722;
 }
 .dashboard-Navbar > ul > li > a > span.badge{

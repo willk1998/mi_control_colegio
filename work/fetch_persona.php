@@ -2,7 +2,7 @@
 
 //fetch.php
 
-$api_url = "http://localhost/mi_control_colegio/api/test_api_estudiante.php?action=fetch_all";
+$api_url = "http://localhost/mi_control_colegio/api/test_api_persona.php?action=fetch_all";
 
 $client = curl_init($api_url);
 

@@ -6,6 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="../css/main.css">
+	<link href="../css/iconic-font.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -42,86 +43,86 @@
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					<a href="../home.php">
-						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-2x"></i> Inicio
 					</a>
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-case zmdi-hc-fw"></i> Administracion <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-case zmdi-hc-2x"></i> Administracion <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Colegio</a>
+							<a href="../work/index_colegio.php"><i class="zmdi zmdi-timer zmdi-hc-2x"></i> Colegio</a>
 						</li>
 						<li>
-							<a href="../work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuenta</a>
+							<a href="../work/index_cuenta.php"><i class="zmdi zmdi-book zmdi-hc-2x"></i> Cuenta</a>
 						</li>
 						<li>
-							<a href="../work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Curso</a>
+							<a href="../work/index_curso.php"><i class="zmdi zmdi-graduation-cap zmdi-hc-2x"></i> Curso</a>
 						</li>
 						<li>
-							<a href="../work/index_notas.php"><i class="zmdi zmdi-label zmdi-hc-fw"></i> Notas</a>
+							<a href="../work/index_notas.php"><i class="zmdi zmdi-label zmdi-hc-2x"></i> Notas</a>
 						</li>
 						<li>
-							<a href="../work/index_materia.php"><i class="zmdi zmdi-folder-outline  zmdi-hc-fw"></i> Materia</a>
+							<a href="../work/index_materia.php"><i class="zmdi zmdi-folder-outline  zmdi-hc-2x"></i> Materia</a>
 						</li>
 						<li>
-							<a href="../work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Paralelo</a>
+							<a href="../work/index_paralelo.php"><i class="zmdi zmdi-slideshare zmdi-hc-2x"></i> Paralelo</a>
 						</li>
 						<li>
-							<a href="../work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Gestion</a>
+							<a href="../work/index_gestion.php"><i class="zmdi zmdi-slideshare zmdi-hc-2x"></i> Gestion</a>
 						</li>
 						<li>
-							<a href="../work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-fw"></i> Nivel</a>
+							<a href="../work/index_nivel.php"><i class="zmdi zmdi-slideshare zmdi-hc-2x"></i> Nivel</a>
 						</li>
 					</ul>
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-account-add zmdi-hc-2x"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_profesor.php"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Profesores</a>
+							<a href="../work/index_profesor.php"><i class="zmdi zmdi-account zmdi-hc-2x"></i> Profesores</a>
 						</li>
 						<li>
-							<a href="../work/index_padre_familia.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Padre de Familia</a>
+							<a href="../work/index_padre_familia.php"><i class="zmdi zmdi-male-alt zmdi-hc-2x"></i> Padre de Familia</a>
 						</li>
 						<li>
-							<a href="../work/index_estudiante.php"><i class="zmdi zmdi-face zmdi-hc-fw"></i> Estudiantes</a>
+							<a href="../work/index_estudiante.php"><i class="zmdi zmdi-face zmdi-hc-2x"></i> Estudiantes</a>
 						</li>
 						
 					</ul>
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-card zmdi-hc-fw"></i> Registros <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-card zmdi-hc-2x"></i> Registros <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_persona.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Personas</a>
+							<a href="../work/index_persona.php"><i class="zmdi zmdi-money-box zmdi-hc-2x"></i> Personas</a>
 						</li>
 						<li>
-							<a href="../work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Designacion de cursos</a>
+							<a href="../work/index_grupo.php"><i class="zmdi zmdi-calendar-check zmdi-hc-2x"></i> Designacion de cursos</a>
 						</li>
 						<li>
-							<a href="../work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> inscritos</a>
+							<a href="../work/index_inscrito.php"><i class="zmdi zmdi-calendar-check zmdi-hc-2x"></i> inscritos</a>
 						</li>
 						<li>
-							<a href="../work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Roles</a>
+							<a href="../work/index_rol.php"><i class="zmdi zmdi-calendar-check zmdi-hc-2x"></i> Roles</a>
 						</li>
 						<li>
-							<a href="../work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-fw"></i> Usuarios Cuenta</a>
+							<a href="../work/index_usuario.php"><i class="zmdi zmdi-calendar-check zmdi-hc-2x"></i> Usuarios Cuenta</a>
 						</li>
 					</ul>
 				</li>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Informacion de Colegio <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-shield-security zmdi-hc-2x"></i> Informacion de Colegio <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="../work/index_informacion_colegio.php"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Datos de Colegio</a>
+							<a href="../work/index_informacion_colegio.php"><i class="zmdi zmdi-balance zmdi-hc-2x"></i> Datos de Colegio</a>
 						</li>
 					</ul>
 				</li>

@@ -12,7 +12,7 @@ $(document).ready(function(){
 	});
 	$('.btn-exit-system').on('click', function(){
 		swal({
-		  	title: 'Are you sure?',
+		  	title: 'si quiere salir?',
 		  	text: "The current session will be closed",
 		  	type: 'warning',
 		  	showCancelButton: true,
@@ -21,7 +21,7 @@ $(document).ready(function(){
 		  	confirmButtonText: '<i class="zmdi zmdi-run"></i> Yes, Exit!',
 		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Cancel!'
 		}).then(function () {
-			window.location.href="index.html";
+			window.location.href="index.php";
 		});
 	});
 	$('.btn-menu-dashboard').on('click', function(){
